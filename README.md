@@ -107,7 +107,6 @@ This will build both versions and list the produced JARs.
 - Listens to `EntityDamageByEntityEvent`. When a player with the feature enabled hits with a `FEATHER`:
   - Cancels the damage event to avoid angering villagers and other damage-based triggers.
   - Applies a small custom velocity to simulate a push.
-  - Optionally clears mob target if `clear-mob-target` is `true`.
 
 ## Troubleshooting
 - Plugin doesn’t load: ensure your server version matches the JAR’s `mc-<version>` classifier and that you’re on Java 21.
