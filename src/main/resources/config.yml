@@ -1,0 +1,34 @@
+## FeatherAttackCancel configuration
+## All comments are in English by request.
+
+# Which item must be held in main hand to trigger the special hit logic.
+# Use an uppercase Bukkit material name. Default: FEATHER
+trigger-item: FEATHER
+
+knockback:
+ # Minimum attack cooldown required to apply knockback (0.0 .. 1.0).
+ # 1.0 means fully charged; 0.9 is a common practical threshold.
+ min-charge: 0.9
+
+ # Base horizontal strength of the knockback vector.
+ horizontal: 0.6
+
+ # Ensure at least this upward component (Y) when applying knockback.
+ min-upward: 0.35
+
+ # If true, scale the horizontal strength by the attack charge (0..1).
+ scale-by-charge: false
+
+ # If true, clamp the target's final velocity magnitude to the given max.
+ clamp-velocity: true
+
+ # Maximum final velocity magnitude when clamping is enabled.
+ max-velocity: 1.2
+
+behavior:
+ # Auto-enable the feature for players already online when the plugin enables (e.g. server reload).
+ auto-enable-on-enable: true
+
+ # Auto-enable the feature for players when they join.
+ auto-enable-on-join: true
+

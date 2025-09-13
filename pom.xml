@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>com.dox187.featherhit</groupId>
+    <artifactId>featherhit.FeatherCancel</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    
+    <name>FeatherAttackCancel</name>
+    <url></url>
+
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License v3.0 or later</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <!-- Default Java release and Paper API version (overridden by profiles) -->
+        <java.release>21</java.release>
+        <paper-api.version>1.21.7-R0.1-SNAPSHOT</paper-api.version>
+        <mcVersion>1.21.7</mcVersion>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>${paper-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <includes>
+                    <include>plugin.yml</include>
+                    <include>config.yml</include>
+                    <include>lang/**</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>${java.release}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <classifier>mc-${mcVersion}</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>mc-1.21.7</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <mcVersion>1.21.7</mcVersion>
+                <paper-api.version>1.21.7-R0.1-SNAPSHOT</paper-api.version>
+                <java.release>21</java.release>
+            </properties>
+        </profile>
+        <profile>
+            <id>mc-1.21.8</id>
+            <properties>
+                <mcVersion>1.21.8</mcVersion>
+                <paper-api.version>1.21.8-R0.1-SNAPSHOT</paper-api.version>
+                <java.release>21</java.release>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>
