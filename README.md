@@ -27,15 +27,47 @@ Feather hit is not an attack — a small Paper plugin that turns feather hits in
 Permissions: none (by default all players can use the command).
 
 ## Configuration
-File: `plugins/FeatherAttackCancel/config.yml`
+File: `plugins/FeatherAttackCancel/config.yml` (use spaces only, no TABs)
 
-- `clear-mob-target: true`
-  - If `true`, when you feather-hit a mob that has targeted you (e.g., iron golem, zombie), the plugin clears its target to stop chasing/aggro.
-  - Set to `false` to keep default targeting behavior.
+Keys
+- trigger-item: Uppercase Bukkit material name for the item that triggers the knockback-only hit. Default: FEATHER
 
-Language files: `plugins/FeatherAttackCancel/lang/`
-- The plugin tries to use the client’s locale (e.g., `en-US`) converted to lowercase (`en-us`) and mapped to a file like `en_us.yml`.
-- Fallback order: exact (`xx_yy.yml`) → two-letter with `_us` (`xx_us.yml`) → `en_us.yml`.
+- knockback:
+  - min-charge: Number (0.0–1.0). Minimum attack cooldown required to apply knockback. 1.0 = fully charged. Default: 0.9
+  - horizontal: Number. Base horizontal strength of the knockback vector. Default: 0.6
+  - min-upward: Number. Ensures at least this upward (Y) component so hits don’t push targets downward. Default: 0.35
+  - scale-by-charge: Boolean. If true, scales horizontal strength by the current attack charge (prevents weak spam from being as strong as full hits). Default: false
+  - clamp-velocity: Boolean. If true, clamps the target’s final velocity magnitude to avoid “stacking” launches. Default: true
+  - max-velocity: Number. Maximum final velocity magnitude when clamping is enabled. Default: 1.2
+
+- behavior:
+  - auto-enable-on-enable: Boolean. When the plugin enables (e.g., server start/reload), automatically enables the feature for players already online. Default: true
+  - auto-enable-on-join: Boolean. Automatically enables the feature for players when they join. Default: true
+
+Applying changes
+- There is no reload subcommand; `/featherhit` only toggles the feature for the executing player.
+- To apply config changes, restart the server (or stop/start).
+
+Language files
+- Path: `plugins/FeatherAttackCancel/lang/`
+- Fallback order: exact client tag (e.g., `de-de.yml`) → underscore form (e.g., `de_de.yml`) → `en_us.yml`.
+- Color codes: use `&` (e.g., `&6`, `&a`); messages are rendered via Adventure components.
+
+Examples
+```yaml
+# Softer knockback that scales with charge
+trigger-item: FEATHER
+knockback:
+  min-charge: 0.9
+  horizontal: 0.45
+  min-upward: 0.30
+  scale-by-charge: true
+  clamp-velocity: true
+  max-velocity: 1.0
+behavior:
+  auto-enable-on-enable: true
+  auto-enable-on-join: true
+```
 
 ## Notes on Namespaced Command Suggestions
 If tab-complete shows a namespaced command like `/featherattackcancel:featherhit`, this comes from the plugin name namespace. On Paper, you can hide namespaced suggestions by setting `send-namespaced=false` in `paper-global.yml` (or relevant Paper config for your version).
