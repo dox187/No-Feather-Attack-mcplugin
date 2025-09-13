@@ -1,6 +1,7 @@
-# FeatherAttackCancel
+# No Feather Attack 
+## _[aka Feather Attack Cancel]_
 
-Feather hit is not an attack — a small Paper plugin that turns feather hits into knockback-only interactions. It cancels damage (so villagers don’t get angry and no damage side-effects fire) while still applying a light custom knockback.
+_"Feather hit is not an attack" — a small Paper plugin that turns feather hits into knockback-only interactions. It cancels damage (so villagers don’t get angry and no damage side-effects fire) while still applying a light custom knockback._
 
 ## Features
 - Knockback-only feather hits: cancels the damage event and applies custom push.
