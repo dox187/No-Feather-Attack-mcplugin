@@ -6,11 +6,11 @@
 
 
     <groupId>com.dox187.featherhit</groupId>
-    <artifactId>featherhit.FeatherCancel</artifactId>
-    <version>1.0.0</version>
+    <artifactId>featherhit.NoFeatherAttack</artifactId>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     
-    <name>FeatherAttackCancel</name>
+    <name>NoFeatherAttack</name>
     <url></url>
 
     <licenses>

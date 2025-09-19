@@ -1,5 +1,5 @@
 /*
- * FeatherAttackCancel
+ * NoFeatherAttack
  * SPDX-License-Identifier: AGPL-3.0-or-later
  * Copyright (c) 2025 dox187
  */
@@ -27,7 +27,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-public final class FeatherCancel extends JavaPlugin implements Listener {
+public final class NoFeatherAttack extends JavaPlugin implements Listener {
 
     private final Set<UUID> enabledPlayers = new HashSet<>();
     // Config-backed fields
@@ -44,7 +44,7 @@ public final class FeatherCancel extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
-        getLogger().info("FeatherCancel enabled!");
+        getLogger().info("NoFeatherAttack enabled!");
 
         // Ensure config.yml is saved with defaults
         saveDefaultConfig();

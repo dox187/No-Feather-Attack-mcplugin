@@ -7,7 +7,6 @@ _"Feather hit is not an attack" — a small Paper plugin that turns feather hits
 - Knockback-only feather hits: cancels the damage event and applies custom push.
 - Per-player toggle via command `/featherhit`.
 - Auto-enable on player join (and on plugin reload for already-online players).
-- Optional clearing of mob target on feather hit (configurable).
 - Client language message support: `en_us`, `de_de`, `fr_fr`, `es_es`, `hu_hu`.
 - Builds for multiple MC versions via Maven profiles (1.21.7 and 1.21.8).
 
@@ -19,8 +18,8 @@ _"Feather hit is not an attack" — a small Paper plugin that turns feather hits
 1. Download/build the JAR for your server version (see Build section).
 2. Place the JAR into your server’s `plugins/` folder.
 3. Start the server. The plugin will create:
-   - `plugins/FeatherAttackCancel/config.yml`
-   - `plugins/FeatherAttackCancel/lang/*.yml`
+   - `plugins/NoFeatherAttack/config.yml`
+   - `plugins/NoFeatherAttack/lang/*.yml`
 
 ## Commands
 - `/featherhit` — Toggle feather knockback-only mode for yourself.
@@ -28,7 +27,7 @@ _"Feather hit is not an attack" — a small Paper plugin that turns feather hits
 Permissions: none (by default all players can use the command).
 
 ## Configuration
-File: `plugins/FeatherAttackCancel/config.yml` (use spaces only, no TABs)
+File: `plugins/NoFeatherAttack/config.yml` (use spaces only, no TABs)
 
 Keys
 - trigger-item: Uppercase Bukkit material name for the item that triggers the knockback-only hit. Default: FEATHER
@@ -50,7 +49,7 @@ Applying changes
 - To apply config changes, restart the server (or stop/start).
 
 Language files
-- Path: `plugins/FeatherAttackCancel/lang/`
+- Path: `plugins/NoFeatherAttack/lang/`
 - Fallback order: exact client tag (e.g., `de-de.yml`) → underscore form (e.g., `de_de.yml`) → `en_us.yml`.
 - Color codes: use `&` (e.g., `&6`, `&a`); messages are rendered via Adventure components.
 
@@ -71,7 +70,7 @@ behavior:
 ```
 
 ## Notes on Namespaced Command Suggestions
-If tab-complete shows a namespaced command like `/featherattackcancel:featherhit`, this comes from the plugin name namespace. On Paper, you can hide namespaced suggestions by setting `send-namespaced=false` in `paper-global.yml` (or relevant Paper config for your version).
+If tab-complete shows a namespaced command like `/nofeatherattack:featherhit`, this comes from the plugin name namespace. On Paper, you can hide namespaced suggestions by setting `send-namespaced=false` in `spigot.yml` (or relevant Paper config for your version).
 
 ## Build
 This project uses Maven profiles to build for multiple MC versions.
@@ -81,8 +80,8 @@ Profiles included:
 - `mc-1.21.8` → Paper API `1.21.8-R0.1-SNAPSHOT`
 
 Artifacts are created with a classifier indicating the MC version, e.g.:
-- `target/featherhit.FeatherCancel-1.0.0-mc-1.21.7.jar`
-- `target/featherhit.FeatherCancel-1.0.0-mc-1.21.8.jar`
+- `target/featherhit.NoFeatherAttack-1.0.1-mc-1.21.7.jar`
+- `target/featherhit.NoFeatherAttack-1.0.1-mc-1.21.8.jar`
 
 Build commands (PowerShell on Windows):
 ```powershell
@@ -116,8 +115,8 @@ This will build both versions and list the produced JARs.
 - No messages in your language: confirm the correct `lang/xx_yy.yml` exists. The plugin falls back to `en_us.yml`.
 
 ## Project Metadata
-- Name: `FeatherAttackCancel`
-- Main: `com.dox187.featherhit.FeatherCancel`
+- Name: `NoFeatherAttack`
+- Main: `com.dox187.featherhit.NoFeatherAttack`
 - Author: `dox187`
 
 ## License

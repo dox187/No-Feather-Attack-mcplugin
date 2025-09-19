@@ -1,3 +1,3 @@
-feather_on: "&6[FeatherCancel] &aMode plume activé."
-feather_off: "&6[FeatherCancel] &cMode plume désactivé."
+feather_on: "&6[NoFeatherAttack] &aMode plume activé."
+feather_off: "&6[NoFeatherAttack] &cMode plume désactivé."
 not_a_player: "Seuls les joueurs peuvent utiliser cette commande!"

@@ -1,6 +1,6 @@
-main: com.dox187.featherhit.FeatherCancel
-version: 1.0.0
-name: FeatherAttackCancel
+main: com.dox187.featherhit.NoFeatherAttack
+version: 1.0.1
+name: NoFeatherAttack
 author: dox187
 api-version: 1.21
 description: Feather hit knockback-only per player toggle with client language support
